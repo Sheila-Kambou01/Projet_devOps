@@ -2,6 +2,8 @@ import streamlit as st
 import requests
 from datetime import datetime
 
+from uvicorn import run
+
 API_URL = "http://127.0.0.1:8000/taches/"
 
 st.title("To-Do List avec FastAPI et SQLite")
@@ -34,3 +36,8 @@ if response.status_code == 200:
         st.write(f"**{tache['titre']}** - {tache['description']} - {tache['date_echeance']}")
 else:
     st.error("Erreur lors de la récupération des tâches")
+
+
+if __name__ == "__app__":
+    import os
+    os.system("streamlit run app.py")

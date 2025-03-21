@@ -1,3 +1,4 @@
+from datetime import datetime
 from pydantic import BaseModel
 from typing import Optional
 
@@ -7,6 +8,7 @@ class Utilisateur(BaseModel):
     nom: str
     email:str
     mot_de_passe:str
+    role:str
 
     class Tache:
         orm_mode = True

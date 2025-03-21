@@ -1,19 +1,22 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Enum
 from sqlalchemy.orm import relationship
 from datetime import datetime
-from . database import Base
+import database
 
-class Utilisateur(Base):
+
+class Utilisateur(database.Base):
     __tablename__ = "utilisateurs"
 
     id = Column(Integer, primary_key=True, index=True)
     nom = Column(String, index=True)
     email = Column(String, unique=True, index=True)
     mot_de_passe = Column(String)
+    role = Column(String)
 
     taches = relationship("Tache", back_populates="utilisateur")
 
-class Tache(Base):
+
+class Tache(database.Base):
     __tablename__ = "taches"
 
     id = Column(Integer, primary_key=True, index=True)
