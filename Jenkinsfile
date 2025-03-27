@@ -37,8 +37,8 @@ pipeline {
             steps {
                 script {
                     emailext(
-                        subject: "Deployment Successful",
-                        body: "Your application has been successfully deployed.",
+                        subject: "Deploiement effectué",
+                        body: "L'application a ete déploye avec success",
                         to: "shei.kambou16@gmail.com"
                     )
                 }
@@ -51,11 +51,10 @@ pipeline {
             }
             steps {
                 script {
-                    // Envoi de la notification par email en cas d'échec
                     emailext(
-                        subject: "Deployment Failed",
-                        body: "Your application deployment has failed. Please check the logs.",
-                        to: "recipient-email@domain.com"
+                        subject: "Deploiement non effectué",
+                        body: "L'application n'a pas ete déploye",
+                        to: "shei.kambou16@gmail.com"
                     )
                 }
             }
