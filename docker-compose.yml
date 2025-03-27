@@ -27,6 +27,7 @@ services:
       - ./frontend:/app
       - /app/node_modules  # Évite les conflits de node_modules
       - shared_data:/app/shared  # Répertoire partagé avec le backend
+    command: streamlit run app.py 
 
 volumes:
   backend_data:
