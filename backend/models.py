@@ -11,7 +11,6 @@ class Utilisateur(database.Base):
     nom = Column(String, index=True)
     email = Column(String, unique=True, index=True)
     mot_de_passe = Column(String)
-    role = Column(String)
 
     taches = relationship("Tache", back_populates="utilisateur")
 
